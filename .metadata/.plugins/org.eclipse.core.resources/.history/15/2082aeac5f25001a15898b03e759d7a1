@@ -1,0 +1,11 @@
+package cn.e3mall.controller;
+
+import org.springframework.stereotype.Controller;
+
+@Controller
+public abstract class ItemController {
+
+	@C
+	
+	
+}
