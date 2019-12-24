@@ -26,11 +26,16 @@
 	<!-- 提供应用信息，用于计算依赖关系 -->
 	<dubbo:application name="e3-manager"/>
 	<!-- zookeeper注册中心 -->
-	<dubbo:registry protocol="zookeeper" address="localhost:2181"></dubbo:registry>
+	<dubbo:registry protocol="zookeeper" address="192.168.25.100:2181"></dubbo:registry>
 	<!-- 用dubbo协议在20880端口暴露服务 -->
 	<dubbo:protocol name="dubbo" port="20880"/>
 	<!-- 声明需要暴露的服务端口 -->
-	<dubbo:service interface="cn.e3mall.service.ItemService" ref="itemServiceImpl"></dubbo:service>
+	<!-- 
+		cn.e3mall.service.ItemService -> 要注册的路径 
+		itemServiceImpl -> 要注册的ID 
+		timeout="600000"(10min) -> debug的超时时间(默认1000ms)
+	 -->
+	<dubbo:service interface="cn.e3mall.service.ItemService" ref="itemServiceImpl" timeout="600000"></dubbo:service>
 	
 	
 	
