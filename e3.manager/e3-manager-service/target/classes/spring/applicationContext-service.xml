@@ -36,7 +36,7 @@
 		timeout="600000"(10min) -> debug的超时时间(默认1000ms)
 	 -->
 	<dubbo:service interface="cn.e3mall.service.ItemService" ref="itemServiceImpl" timeout="600000"></dubbo:service>
-	
+	<dubbo:service interface="cn.e3mall.service.ItemCatService" ref="itemCatServiceImpl" timeout="600000"></dubbo:service>
 	
 	
 	

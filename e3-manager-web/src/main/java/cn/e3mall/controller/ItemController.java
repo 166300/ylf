@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import cn.e3mall.pojo.TbItem;
 import cn.e3mall.service.ItemService;
+import e3.e3mall.common.poji.EasyUIDataGridResult;
 
 @Controller
 public class ItemController {
 	@Autowired
+	//查询一条信息
 	private ItemService itemService;
 	
 	@RequestMapping("/item/{itemId}")
@@ -20,4 +22,25 @@ public class ItemController {
 		TbItem tbItem = itemService.getItemById(itemId);
 		return tbItem;
 	}
+	
+	@RequestMapping("/item/list")
+	@ResponseBody
+	public EasyUIDataGridResult getItemList(Integer page,Integer rows){
+		//调用服务查询商品列表
+		EasyUIDataGridResult result = itemService.getItemList(page,rows);
+		return result;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

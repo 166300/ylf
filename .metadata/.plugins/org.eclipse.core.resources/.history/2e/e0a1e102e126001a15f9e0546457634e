@@ -1,0 +1,7 @@
+package cn.e3mall.pagehelper;
+
+public class PagehelpTest {
+	public void textPagehelper() throws Exception{
+		//执行分页前
+	}
+}

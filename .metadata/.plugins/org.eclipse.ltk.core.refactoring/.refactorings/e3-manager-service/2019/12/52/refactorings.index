@@ -3,3 +3,10 @@
 1577111090988	Delete element
 1577117499006	Move 'webapp' to 'main'
 1577118037945	Delete element
+1577256207726	Extract local variable 'bean'
+1577256380475	Extract local variable 'selectByExample'
+1577257773993	Extract local variable 'selectByExample'
+1577257928268	Extract local variable 'total'
+1577259089765	Copy files
+1577263646559	Extract local variable 'createCriteria'
+1577263863409	Extract local variable 'selectByExample'

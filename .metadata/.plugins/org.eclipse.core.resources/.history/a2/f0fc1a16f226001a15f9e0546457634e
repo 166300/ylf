@@ -1,0 +1,31 @@
+package cn.e3mall.service.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import cn.e3mall.mapper.TbItemCatMapper;
+import cn.e3mall.pojo.TbItemCatExample;
+import cn.e3mall.service.ItemCatService;
+import e3.e3mall.common.poji.EasyUITreeNode;
+
+/**
+ * 
+ * 商品分类管理
+ * @author StaryL
+ *
+ */
+@Service
+public class ItemCatServiceImpl implements ItemCatService {
+	@Autowired
+	private TbItemCatMapper ItemCatServiceImpl;
+	
+	
+	@Override
+	public List<EasyUITreeNode> getItemCatlist(long parentId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

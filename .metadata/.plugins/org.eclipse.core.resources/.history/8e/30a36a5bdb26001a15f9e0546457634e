@@ -1,0 +1,28 @@
+package cn.e3mall.controller;
+
+import org.springframework.stereotype.Controller;
+
+/**
+ * 
+ * 页面跳转Controller
+ * @author StaryL
+ *
+ */
+@Controller
+public class PageController {
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+}
