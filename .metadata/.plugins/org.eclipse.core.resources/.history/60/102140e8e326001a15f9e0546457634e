@@ -1,7 +1,0 @@
-package e3.e3mall.common.poji;
-
-import java.io.Serializable;
-
-public class EasyUIDataGridResult implements Serializable{
-	private Long total
-}

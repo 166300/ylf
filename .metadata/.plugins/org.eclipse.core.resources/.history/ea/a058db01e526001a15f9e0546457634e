@@ -1,9 +1,0 @@
-package cn.e3mall.service;
-
-import cn.e3mall.pojo.TbItem;
-import e3.e3mall.common.poji.EasyUIDataGridResult;
-
-public interface ItemService {
-	TbItem getItemById(long itemId);
-	EasyUIDataGridResult gat
-}

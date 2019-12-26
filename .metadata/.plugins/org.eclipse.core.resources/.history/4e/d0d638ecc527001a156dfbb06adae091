@@ -1,0 +1,54 @@
+package cn.e3mall.fast;
+
+import org.csource.fastdfs.ClientGlobal;
+import org.csource.fastdfs.StorageClient;
+import org.csource.fastdfs.StorageServer;
+import org.csource.fastdfs.TrackerClient;
+import org.csource.fastdfs.TrackerServer;
+import org.junit.Test;
+
+import e3.e3mall.common.util.FastDFSClient;
+
+public class FastDfTest {
+	@Test
+	public void testUpload() throws Exception{
+		//创建一个配置文件(client.conf) 。文件名任意。内容就是 tracker服务器地址
+		//使用全局对象加载配置文件(client.conf)
+		ClientGlobal.init("D:/App/Eclipse/propertise/e3-manager-web/src/main/resources/conf/client.conf");
+		//创建一个 trackerClient对象
+		TrackerClient trackerClient=new TrackerClient();
+		//通过客户trackerClient获得一个客户端trackerserver对象
+		TrackerServer trackerServer = trackerClient.getConnection();
+		//创建一个StorageServer的引用，可以是null
+		StorageServer storageServer =null;
+		//创建一个StorageClient 参数需要trackerserver和StrorageServer
+		StorageClient storageClient=new StorageClient(trackerServer, storageServer);
+		//使用StorageClient上传图片
+		//("全路径","类型","")
+		String[] strings = storageClient.upload_file("D:/img/003.jpg", ".jpg", null);
+		for (String string : strings) {
+			System.out.println(string);
+		}
+	}
+	
+	@Test
+	public void testFastDfsClient() throws Exception{
+		//得到文件
+		FastDFSClient fastDFSClient=new FastDFSClient("D:/App/Eclipse/propertise/e3-manager-web/src/main/resources/conf/client.conf");
+		//上传图片
+		String uploadFile = fastDFSClient.uploadFile("‪D:/img/001.jpg");
+		//图片地址
+		System.out.println(uploadFile);
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

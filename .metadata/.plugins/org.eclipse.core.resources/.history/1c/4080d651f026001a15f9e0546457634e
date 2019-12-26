@@ -1,9 +1,0 @@
-package e3.e3mall.common.poji;
-
-public class EasyUITreeNode {
-	private long id;
-	private String text;
-	private String state;
-	
-
-}

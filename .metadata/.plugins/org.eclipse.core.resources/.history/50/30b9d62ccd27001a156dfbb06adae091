@@ -1,0 +1,11 @@
+package cn.e3mall.controller;
+
+/**
+ * 
+ * 图片上床
+ * @author StaryL
+ *
+ */
+public class PictureController {
+
+}

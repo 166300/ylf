@@ -37,6 +37,9 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="D:\App\Eclipse\propertise\pagehelper-fix\fastdfs_client"/>
+			<item value="D:\App\Eclipse\propertise\pagehelper-fix\pagehelper"/>
+			<item value="D:\U盘\分布式：宜立方商城\e3商城_day01\黑马32期\01.教案-3.0\01.参考资料\mybatis"/>
 			<item value="D:\App\Eclipse\propertise\e3-manager-web"/>
 		</list>
 		<list key="projectNameTemplate">

@@ -1,8 +1,0 @@
-package cn.e3mall.pagehelper;
-
-public class PagehelpTest {
-	public void textPagehelper() throws Exception{
-		//执行分页前设置分页信息使用pagehelper的startPage的方法
-		//执行查询
-	}
-}

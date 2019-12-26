@@ -10,3 +10,11 @@
 1577253584576	Delete element
 1577258527570	Extract local variable 'itemList'
 1577270026341	Extract local variable 'itemCatlist'
+1577349374196	Delete element
+1577349439928	Rename resource 'client,conf'
+1577349704972	Extract local variable 'connection'
+1577350402073	Extract local variable 'upload_file'
+1577353686160	Extract local variable 'uploadFile'
+1577357816048	Extract local variable 'originalFilename'
+1577357937666	Extract local variable 'uploadFile2'
+1577370486561	Extract local variable 'additem'
