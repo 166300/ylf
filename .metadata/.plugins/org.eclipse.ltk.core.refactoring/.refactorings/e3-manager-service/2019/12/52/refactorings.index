@@ -11,3 +11,13 @@
 1577263646559	Extract local variable 'createCriteria'
 1577263863409	Extract local variable 'selectByExample'
 1577369082996	Extract local variable 'genItemId'
+1577440333286	Extract local variable 'selectByPrimaryKey'
+1577440347848	Extract local variable 'selectByPrimaryKey'
+1577441237121	Extract local variable 'updateByPrimaryKey'
+1577538211705	Copy elements
+1577543631056	Copy package
+1577551634836	Copy elements
+1577552953905	Copy elements
+1577555702109	Rename type 'TestPublish'
+1577555708785	Rename type 'manager'
+1577555724459	Copy package

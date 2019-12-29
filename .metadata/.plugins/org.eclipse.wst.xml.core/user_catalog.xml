@@ -2,4 +2,5 @@
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
   <system systemId="http://code.alibabatech.com/schema/dubbo/dubbo.xsd " uri="file:///D:/App/Eclipse/YSWJ/dubbo/dubbo.xsd"/>
   <uri name="http://code.alibabatech.com/schema/dubbo/dubbo.xsd" uri="file:///D:/App/Eclipse/YSWJ/dubbo/dubbo.xsd"/>
+  <uri name="http://mybatis.org/dtd/mybatis-3-mapper.dtd" uri="file:///D:/App/Eclipse/YSWJ/mybatis-3-mapper.dtd"/>
 </catalog>

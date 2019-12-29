@@ -15,7 +15,7 @@ import e3.e3mall.common.poji.EasyUITreeNode;
 
 /**
  * 
- * 商品分类管理
+ * 商品分类管理(新增商品的选择类目)
  * @author StaryL
  *
  */

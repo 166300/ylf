@@ -2,14 +2,13 @@
 <section name="Workbench">
 	<section name="MavenProjectWizardArtifactPage">
 		<list key="groupId">
-			<item value="cn.BM"/>
+			<item value="cn.e3mall"/>
 		</list>
 		<list key="name">
 		</list>
 		<list key="artifactId">
-			<item value="e3-manager-web"/>
-			<item value="e3-manager"/>
-			<item value="e3-manager-service"/>
+			<item value="e3-content"/>
+			<item value="e3.parent"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>
@@ -37,6 +36,8 @@
 	</section>
 	<section name="MavenProjectImportWizardPage">
 		<list key="rootDirectory">
+			<item value="C:\Users\StaryL\Desktop\e3-content"/>
+			<item value="D:\App\Eclipse\propertise\e3-content"/>
 			<item value="D:\App\Eclipse\propertise\pagehelper-fix\fastdfs_client"/>
 			<item value="D:\App\Eclipse\propertise\pagehelper-fix\pagehelper"/>
 			<item value="D:\U盘\分布式：宜立方商城\e3商城_day01\黑马32期\01.教案-3.0\01.参考资料\mybatis"/>
@@ -64,6 +65,10 @@
 	</section>
 	<section name="MavenModuleWizardParentPage">
 		<list key="moduleName">
+			<item value="e3-content-service"/>
+			<item value="e3-content-interface"/>
+			<item value="e3-conten-service"/>
+			<item value="e3-conten-interface"/>
 			<item value="e3-manager-web"/>
 			<item value="e3-manager-service"/>
 			<item value="e3-manager-interface"/>
@@ -81,6 +86,7 @@
 	</section>
 	<section name="MavenProjectWizardLocationPage">
 		<list key="location">
+			<item value="D:\App\Eclipse\propertise\pagehelper-fix\pagehelper"/>
 			<item value="D:\App\Eclipse\propertise\e3-parent\pom.xml"/>
 			<item value="D:\App\Eclipse\propertise\e3-parent"/>
 		</list>
@@ -95,13 +101,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="org.e3.manager.web"/>
 		</list>
 		<list key="groupId">
-			<item value="cn.BM"/>
 		</list>
 		<list key="artifactId">
-			<item value="e3-manager-web"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

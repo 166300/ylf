@@ -1,0 +1,14 @@
+package cn.e3mall.content.service.impl;
+
+import org.springframework.stereotype.Service;
+
+/**
+ * 
+ * 内容管理
+ * @author StaryL
+ *
+ */
+@Service
+public class ContentServiceImpl {
+	
+}

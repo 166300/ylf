@@ -1,0 +1,9 @@
+1577540826834	Extract local variable 'createCriteria'
+1577540908799	Extract local variable 'createCriteria'
+1577540930681	Extract local variable 'createCriteria'
+1577541086277	Extract local variable 'selectByExample'
+1577542825469	Rename type 'ContentCagegoryServiceimpl'
+1577543654519	Rename type 'TestPublish'
+1577552291760	Delete element
+1577553107122	Delete element
+1577555737102	Rename type 'Manager'

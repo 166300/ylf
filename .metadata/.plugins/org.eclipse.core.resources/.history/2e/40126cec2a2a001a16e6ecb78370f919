@@ -1,0 +1,42 @@
+package cn.e3mall.content.service.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import cn.e3mall.content.service.ContentService;
+import cn.e3mall.mapper.TbContentMapper;
+import cn.e3mall.pojo.TbContent;
+import e3.e3mall.common.util.E3Result;
+
+/**
+ * 
+ * 内容管理
+ * @author StaryL
+ *
+ */
+@Service
+public class ContentServiceImpl implements ContentService{
+
+		
+	@Autowired
+	private TbContentMapper contentMapper;
+	
+	@Override
+	public E3Result addContent(TbContent content) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

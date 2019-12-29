@@ -1,0 +1,5 @@
+1577610952812	Extract local variable 'insert'
+1577611021880	Extract local variable 'selectByPrimaryKey'
+1577625215097	Extract local variable 'createCriteria'
+1577625568377	Extract local variable 'andCategoryIdEqualTo'
+1577625597863	Extract local variable 'selectByExampleWithBLOBs'

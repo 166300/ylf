@@ -1,0 +1,14 @@
+package cn.e3mall.portal.controller;
+
+import org.springframework.stereotype.Controller;
+
+/**
+ * 
+ * 首页展示
+ * @author StaryL
+ *
+ */
+@Controller
+public class IndexController {
+	
+}

@@ -20,7 +20,11 @@
 <div id="itemEditWindow" class="easyui-window" title="编辑商品" data-options="modal:true,closed:true,iconCls:'icon-save',href:'/rest/page/item-edit'" style="width:80%;height:80%;padding:10px;">
 </div>
 <script>
-
+/* var itemEditEditor ;
+$(function(){
+	//实例化编辑器
+	itemEditEditor = E3.createEditor("#itemeEditForm [name=desc]");
+}); */
     function getSelectionsIds(){
     	var itemList = $("#itemList");
     	var sels = itemList.datagrid("getSelections");
@@ -53,7 +57,7 @@
         	}
         	
         	$("#itemEditWindow").window({
-        		onLoad :function(){
+        		onLoad:function(){
         			//回显数据
         			var data = $("#itemList").datagrid("getSelections")[0];
         			data.priceView = E3.formatPrice(data.price);

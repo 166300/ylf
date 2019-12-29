@@ -1,0 +1,28 @@
+package cn.e3mall.portal.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import cn.e3mall.content.service.ContentService;
+
+/**
+ * 
+ * 首页展示
+ * @author StaryL
+ *
+ */
+@Controller
+public class IndexController {
+	
+	@Autowired
+	private ContentService contentService;
+	
+	
+	@RequestMapping("/index")
+	public String showIndex(){
+		//查询内容列表
+		
+		return "index";
+	}
+}

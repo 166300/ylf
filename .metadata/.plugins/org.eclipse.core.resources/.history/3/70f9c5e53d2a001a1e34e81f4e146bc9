@@ -1,0 +1,65 @@
+package cn.e3mall.content.service.impl;
+
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import cn.e3mall.content.service.ContentService;
+import cn.e3mall.mapper.TbContentMapper;
+import cn.e3mall.pojo.TbContent;
+import cn.e3mall.pojo.TbContentExample;
+import cn.e3mall.pojo.TbContentExample.Criteria;
+import e3.e3mall.common.util.E3Result;
+
+/**
+ * 
+ * 内容管理
+ * @author StaryL
+ *
+ */
+@Service
+public class ContentServiceImpl implements ContentService{
+
+		
+	@Autowired
+	private TbContentMapper contentMapper;
+	
+	@Override
+	public E3Result addContent(TbContent content) {
+		//将内容数据插入内容表
+		content.setCreated(new Date());
+		content.setUpdated(new Date());
+		//插入数据库
+		contentMapper.insert(content);
+		return E3Result.ok();
+	}
+	/*
+	 * 
+	 * 跟局内容分类id查询内容列表
+	 * 
+	 * */
+	@Override
+	public List<TbContent> getContentListByCid(long cid) {
+		TbContentExample example=new TbContentExample();
+		Criteria createCriteria = example.createCriteria();
+		//设置查询条件
+		createCriteria.andCategoryIdEqualTo(cid);
+		contentMapper.selectByExampleWithBLOBs(example);
+		return null;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

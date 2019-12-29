@@ -18,3 +18,7 @@
 1577357816048	Extract local variable 'originalFilename'
 1577357937666	Extract local variable 'uploadFile2'
 1577370486561	Extract local variable 'additem'
+1577440366091	Extract local variable 'queryItem'
+1577440375134	Extract local variable 'querydesc'
+1577441275824	Extract local variable 'updateItem'
+1577523116857	Copy elements

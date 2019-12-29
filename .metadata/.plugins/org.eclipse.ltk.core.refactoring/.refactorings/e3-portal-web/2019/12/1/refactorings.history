@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Extract local variable &apos;contentListByCid&apos; from expression &apos;contentService.getContentListByCid(CONTENT_LUNBO_ID)&apos;&#x0D;&#x0A;- Original project: &apos;e3-portal-web&apos;&#x0D;&#x0A;- Variable name: &apos;contentListByCid&apos;&#x0D;&#x0A;- Destination method: &apos;cn.e3mall.portal.controller.IndexController.showIndex()&apos;&#x0D;&#x0A;- Variable expression: &apos;contentService.getContentListByCid(CONTENT_LUNBO_ID)&apos;&#x0D;&#x0A;- Replace occurrences of expression with variable" description="Extract local variable &apos;contentListByCid&apos;" final="false" id="org.eclipse.jdt.ui.extract.temp" input="/src\/main\/java&lt;cn.e3mall.portal.controller{IndexController.java" name="contentListByCid" replace="true" selection="680 0" stamp="1577626054954" version="1.0"/>
+</session>

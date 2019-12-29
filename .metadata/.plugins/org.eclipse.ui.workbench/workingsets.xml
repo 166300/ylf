@@ -1,4 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <workingSetManager>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1577539034911_1" label="BM_fhsl" name="BM_fhsl">
+<item elementID="=pagehelper" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=e3-manager-interface" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=e3-manager-service" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=e3-manager-dao" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/e3.parent" type="4"/>
+<item elementID="=e3-manager-web" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=fastdfs_client" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=e3-portal-web" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=generatorSqlmapCustom" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/e3-content" type="4"/>
+<item elementID="=e3-content-service" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/e3.manager" type="4"/>
+<item elementID="=e3.common" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=e3-manager-pojo" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+<item elementID="=e3-content-interface" factoryID="org.eclipse.jdt.ui.PersistableJavaElementFactory"/>
+</workingSet>
+<workingSet editPageId="org.eclipse.jdt.ui.JavaWorkingSetPage" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1577539124484_4" label="BM_hyjw" name="BM_hyjw"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1575624931554_0" label="Window Working Set" name="Aggregate for window 1575624931554"/>
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1577554432498_5" label="Multiple Working Sets" name="Aggregate:BM_fhsl:BM_hyjw:">
+<workingSet IMemento.internal.id="BM_fhsl"/>
+<workingSet IMemento.internal.id="BM_hyjw"/>
+</workingSet>
+<mruList name="BM_fhsl"/>
 </workingSetManager>

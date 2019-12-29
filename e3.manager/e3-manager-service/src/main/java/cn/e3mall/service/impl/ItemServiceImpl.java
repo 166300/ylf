@@ -18,6 +18,10 @@ import cn.e3mall.service.ItemService;
 import e3.e3mall.common.poji.EasyUIDataGridResult;
 import e3.e3mall.common.util.E3Result;
 import e3.e3mall.common.util.IDUtils;
+/**
+ * @author StaryL
+ *
+ */
 @Service
 public class ItemServiceImpl implements ItemService {
 	@Autowired
@@ -72,5 +76,76 @@ public class ItemServiceImpl implements ItemService {
 		//返回成功
 		return E3Result.ok();
 	}
+	/**
+	 * 
+	 * 商品删除
+	 * 
+	 * 
+	 */
+	@Override
+	public E3Result deleteItem(long id) {
+		itemMapper.deleteByPrimaryKey(id);
+		return E3Result.ok();
+	}
+	/**
+	 * 
+	 * 商品上下架
+	 * 
+	 * 
+	 */
+	@Override
+	public E3Result instockItem(long l,int make) {
+		//创建商品表
+		TbItem record =new TbItem();
+		//得到id
+		record.setId(l);
+		if(make==0){
+			//上架状态
+			record.setStatus((byte) 1);
+		}if(make==1){
+			//下架状态
+			record.setStatus((byte) 2);
+		}
+		
+		itemMapper.updateByPrimaryKeySelective(record );
+		return E3Result.ok();
+	}
+	
+	/**
+	 * 
+	 * 商品回显
+	 * 
+	 */
+	@Override
+	public E3Result queryItem(long id) {
+		TbItem tbItem = itemMapper.selectByPrimaryKey(id);
+		return E3Result.ok(tbItem);
+	}
+	@Override
+	public E3Result querydesc(long id) {
+		TbItemDesc tbItemDesc = itemDescMapper.selectByPrimaryKey(id);
+		return E3Result.ok(tbItemDesc);
+		
+	}
+	@Override
+	public E3Result updateItem(TbItem tbItem) {
+		itemMapper.updateByPrimaryKey(tbItem);
+		return E3Result.ok();
+	}
 
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 }

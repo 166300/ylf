@@ -1,0 +1,11 @@
+package cn.e3mall.controller;
+
+/**
+ * 
+ * 内容管理
+ * @author StaryL
+ *
+ */
+public class ContentController {
+
+}

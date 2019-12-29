@@ -1,0 +1,15 @@
+package cn.e3mall.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+/**
+ * 
+ * 内容分类管理
+ * @author StaryL
+ *
+ */
+@Controller
+public class ContentCatController {
+	@RequestMapping("/content/category/list");
+}

@@ -49,8 +49,8 @@
 	<!-- 引用注册的服务 -->
 	<dubbo:reference interface="cn.e3mall.service.ItemService" id="itemServiceImpl"></dubbo:reference>
 	<dubbo:reference interface="cn.e3mall.service.ItemCatService" id="itemCatServiceImpl"></dubbo:reference>
-	
-	
+	<dubbo:reference interface="cn.e3mall.content.service.ContentCategoryService" id="contentCategoryServiceImpl"></dubbo:reference>
+	<dubbo:reference interface="cn.e3mall.content.service.ContentService" id="contentServiceImpl"></dubbo:reference>
 	
 	
 	
