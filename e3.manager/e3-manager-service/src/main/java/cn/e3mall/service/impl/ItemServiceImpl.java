@@ -19,6 +19,8 @@ import e3.e3mall.common.poji.EasyUIDataGridResult;
 import e3.e3mall.common.util.E3Result;
 import e3.e3mall.common.util.IDUtils;
 /**
+ * 
+ * 商品管理
  * @author StaryL
  *
  */

@@ -1,0 +1,79 @@
+package cn.e3mall.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
+
+import cn.e3mall.content.service.ContentCategoryService;
+import cn.e3mall.content.service.ContentService;
+import cn.e3mall.pojo.TbContent;
+import e3.e3mall.common.poji.EasyUIDataGridResult;
+import e3.e3mall.common.util.E3Result;
+
+/**
+ * 
+ * 内容管理
+ * @author StaryL
+ *
+ */
+@Controller
+public class ContentController {
+	
+	@Autowired
+	private ContentService contentService;
+	@Autowired
+	private ContentCategoryService contentCategoryService;
+	
+	@RequestMapping(value="/content/save",method=RequestMethod.POST)
+	@ResponseBody
+	public E3Result addcontent(TbContent content){
+		//调用服务把内容数据保存到数据库
+		E3Result e3Result=contentService.addContent(content);
+		return e3Result;
+	}
+	/*
+	*
+	*广告内容管理商品查询
+	*
+	*
+	*/
+	@RequestMapping(value="/content/query/list",method=RequestMethod.GET)
+	@ResponseBody
+	public EasyUIDataGridResult getItemList(long categoryId,Integer page,Integer rows){
+		//调用服务查询商品列表
+		EasyUIDataGridResult result = contentCategoryService.getContentList(categoryId, page, rows);
+		return result;
+	}
+	/*
+	*
+	*删除广告内容
+	*
+	*/
+	@RequestMapping(value="/content/delete",method=RequestMethod.GET)
+	@ResponseBody
+	public E3Result delContent(long parentId){
+		//确认拿到字符
+		System.out.println(ids);
+		//按照(,)分割字符得到数组
+		String[] id=ids.split(",");
+		//数组长度(几个ID)
+		System.out.println(id.length);
+		//初始化返回值
+		E3Result result=null;
+		//得到几个数组就是 操作几个商品
+		for (int i = 0; i < id.length; i++) {
+			//查看每个ID
+			System.out.println(id[i]);
+			//把String 类型转成long
+			long l = Long.parseLong(id[i]);
+			//循环删除
+			result = itemService.deleteItem(l);
+		}
+		return result;
+		E3Result delContent = contentCategoryService.delContent(parentId);
+		return delContent;
+
+	};
+}

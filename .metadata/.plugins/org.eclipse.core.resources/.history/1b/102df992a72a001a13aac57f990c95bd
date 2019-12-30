@@ -1,0 +1,138 @@
+package cn.e3mall.content.service.impl;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import cn.e3mall.content.service.ContentCategoryService;
+import cn.e3mall.mapper.TbContentCategoryMapper;
+import cn.e3mall.pojo.TbContentCategory;
+import cn.e3mall.pojo.TbContentCategoryExample;
+import cn.e3mall.pojo.TbContentCategoryExample.Criteria;
+import cn.e3mall.pojo.TbContentExample;
+import e3.e3mall.common.poji.EasyUITreeNode;
+import e3.e3mall.common.util.E3Result;
+@Service
+public class ContentCategoryServiceImpl implements ContentCategoryService {
+
+	@Autowired
+	private TbContentCategoryMapper contentCategoryMapper;
+	/*
+	 * 
+	 * 全查节点
+	 * 
+	 * */
+	@Override
+	public List<EasyUITreeNode> getContentCatList(long parentId) {
+		//根据parentid查询子节点列表
+		TbContentCategoryExample example=new TbContentCategoryExample();
+		Criteria create = example.createCriteria();
+		//设置查询条件
+		create.andParentIdEqualTo(parentId);
+		//执行查询
+		List<TbContentCategory> catList = contentCategoryMapper.selectByExample(example);
+		//转换成EasyUITreeNode列表
+		List<EasyUITreeNode> noList=new ArrayList<>();
+		for (TbContentCategory contentCategory : catList) {
+			EasyUITreeNode node=new EasyUITreeNode();
+			node.setId(contentCategory.getId());
+			node.setText(contentCategory.getName());
+			node.setState(contentCategory.getIsParent()?"closed":"open");
+			//添加到列表
+			noList.add(node);
+		}
+		return noList;
+	}
+	/*
+	 * 
+	 * 新增节点
+	 * 
+	 * */
+	@Override
+	public E3Result addContentCategory(long parentId, String name) {
+		//创建一个tb_content_category表对应的pojo对象
+		TbContentCategory category=new TbContentCategory();
+		//设置pojo的属性
+		category.setParentId(parentId);
+		category.setName(name);
+		//1正常  2删除
+		category.setStatus(1);
+		//默认排序是1
+		category.setSortOrder(1);
+		//新添加的节点一定是叶子节点
+		category.setIsParent(false);
+		category.setCreated(new Date());
+		category.setUpdated(new Date());
+		//插入数据库
+		int insert = contentCategoryMapper.insert(category);
+		//判断父节点的isparent属性。如果不是true改为true
+		//根据parentId查询父节点
+		TbContentCategory parent = contentCategoryMapper.selectByPrimaryKey(parentId);
+		if(!parent.getIsParent()){
+			parent.setIsParent(true);
+			//跟新数据库
+			contentCategoryMapper.updateByPrimaryKey(parent);
+		}
+		//返回结果返回E3Result,包含pojo
+		return E3Result.ok(category);
+	}
+	/*
+	 * 
+	 * 删除节点
+	 * 
+	 * 	删除节点要判断 父节点/子节点
+	 * 		父节点：删除时不让删除(有子节点有内容不允许)/可以删除(要删除所有 子节点过于繁琐)
+	 * 		子节点：删除时判断他的父节点是否还存在子节点不存在  让父节点变为子节点
+	 * */
+	@Override
+	public boolean delContentCategory(long id) {
+		boolean mark=true;
+		//查询是否存在子节点
+		TbContentCategory category = contentCategoryMapper.selectByPrimaryKey(id);
+		//查询条件是ParentId值等于自身ID
+		category.setParentId(id);
+		TbContentCategoryExample example=new TbContentCategoryExample();
+		Criteria createCriteria = example.createCriteria();
+		List<TbContentCategory> selectByExample = contentCategoryMapper.selectByExample(example);
+		if(selectByExample.size()>0){
+			return mark=false;
+		}else{
+			contentCategoryMapper.deleteByPrimaryKey(id);
+			return mark;
+		}
+	}
+	/*
+	 * 
+	 * 修改节点
+	 * 
+	 * */
+	@Override
+	public void updContentCategory(long id, String name) {
+		TbContentCategory record=new TbContentCategory();
+		record.setId(id);
+		record.setName(name);
+		contentCategoryMapper.updateByPrimaryKey(record);
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

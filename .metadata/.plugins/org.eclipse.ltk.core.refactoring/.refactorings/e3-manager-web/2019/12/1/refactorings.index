@@ -1,2 +1,5 @@
 1577607194577	Extract local variable 'contentCatList'
 1577611474580	Extract local variable 'addContentCategory'
+1577670266834	Extract local variable 'delContentCategory'
+1577699000888	Extract local variable 'delContent'
+1577701176382	Extract local variable 'updContent'

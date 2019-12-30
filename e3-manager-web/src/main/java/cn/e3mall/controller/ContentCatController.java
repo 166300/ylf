@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -46,6 +47,32 @@ public class ContentCatController {
 		//调用服务添加节点
 		E3Result addContentCategory = contentCategoryService.addContentCategory(parentId, name);
 		return addContentCategory;
+	}
+	/*
+	 * 
+	 * 删除分类节点
+	 * 
+	 * */
+	@RequestMapping(value="/content/category/delete",method=RequestMethod.POST)
+	@ResponseBody
+	public boolean delContentCategory(long id){
+		System.out.println(id);
+		//调用服务删除节点
+		boolean delContentCategory = contentCategoryService.delContentCategory(id);
+		System.out.println(delContentCategory);
+		return delContentCategory;
+	}
+	/*
+	 * 
+	 * 修改分类节点
+	 * 
+	 * */
+	@RequestMapping(value="/content/category/update",method=RequestMethod.POST)
+	@ResponseBody
+	public void updContentCategory(long id,String name){
+		System.out.println(id);
+		//调用服务修改节点
+		contentCategoryService.updContentCategory(id, name);
 	}
 	
 	

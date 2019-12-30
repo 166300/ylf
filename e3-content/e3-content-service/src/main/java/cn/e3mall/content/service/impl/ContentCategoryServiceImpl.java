@@ -7,11 +7,18 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+
 import cn.e3mall.content.service.ContentCategoryService;
 import cn.e3mall.mapper.TbContentCategoryMapper;
+import cn.e3mall.mapper.TbContentMapper;
+import cn.e3mall.pojo.TbContent;
 import cn.e3mall.pojo.TbContentCategory;
 import cn.e3mall.pojo.TbContentCategoryExample;
 import cn.e3mall.pojo.TbContentCategoryExample.Criteria;
+import cn.e3mall.pojo.TbContentExample;
+import e3.e3mall.common.poji.EasyUIDataGridResult;
 import e3.e3mall.common.poji.EasyUITreeNode;
 import e3.e3mall.common.util.E3Result;
 @Service
@@ -19,6 +26,13 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 
 	@Autowired
 	private TbContentCategoryMapper contentCategoryMapper;
+	@Autowired
+	private TbContentMapper contentMapper;
+	/*
+	 * 
+	 * 全查节点
+	 * 
+	 * */
 	@Override
 	public List<EasyUITreeNode> getContentCatList(long parentId) {
 		//根据parentid查询子节点列表
@@ -40,6 +54,11 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		}
 		return noList;
 	}
+	/*
+	 * 
+	 * 新增节点
+	 * 
+	 * */
 	@Override
 	public E3Result addContentCategory(long parentId, String name) {
 		//创建一个tb_content_category表对应的pojo对象
@@ -68,6 +87,122 @@ public class ContentCategoryServiceImpl implements ContentCategoryService {
 		//返回结果返回E3Result,包含pojo
 		return E3Result.ok(category);
 	}
+	/*
+	 * 
+	 * 删除节点
+	 * 
+	 * 	删除节点要判断 父节点/子节点
+	 * 		父节点：删除时不让删除(有子节点有内容不允许)/可以删除(要删除所有 子节点过于繁琐)
+	 * 		子节点：删除时判断他的父节点是否还存在子节点不存在  让父节点变为子节点
+	 * */
+	@Override
+	public boolean delContentCategory(long id) {
+		boolean mark=true;
+		//查询是否存在子节点
+		//查询条件是ParentId值等于自身ID
+		TbContentCategoryExample example=new TbContentCategoryExample();
+		Criteria createCriteria = example.createCriteria();
+		createCriteria.andParentIdEqualTo(id);
+		//查询是否是父类
+		List<TbContentCategory> selectByExample = contentCategoryMapper.selectByExample(example);
+		if(selectByExample.size()>0){
+			//是父类不可删除
+			return mark=false;
+		}else{
+			//不是父类
+			//查询自己找到父类ParentId
+			TbContentCategory category = contentCategoryMapper.selectByPrimaryKey(id);
+			//查到父类后删除
+			contentCategoryMapper.deleteByPrimaryKey(id);
+			//删除后判断父类是否还有子类\没有父类变子类
+			//按照自己的ParentId查父类下的其他子类
+			example=new TbContentCategoryExample();
+			createCriteria = example.createCriteria();
+			createCriteria.andParentIdEqualTo(category.getParentId());
+			//查到父类其他子类
+			selectByExample = contentCategoryMapper.selectByExample(example);
+			//判断父类是否还存在子类
+			if(selectByExample.size()>0){
+				//父类存在子类
+			}else{
+				//父类不存在子类
+				//查到父类进行状态修改
+				TbContentCategory PrimaryKey = contentCategoryMapper.selectByPrimaryKey(category.getParentId());
+				//该类目是否为父类目，1为true，0为false
+				PrimaryKey.setIsParent(false);
+				contentCategoryMapper.updateByPrimaryKey(PrimaryKey);
+				
+			}
+			return mark=true;
+		}
+	}
+	/*
+	 * 
+	 * 修改节点
+	 * 
+	 * */
+	@Override
+	public void updContentCategory(long id, String name) {
+		TbContentCategory category = contentCategoryMapper.selectByPrimaryKey(id);
+		category.setName(name);
+		contentCategoryMapper.updateByPrimaryKey(category);
+	}
+	/*
+	 * 
+	 * 广告内容的查询
+	 * 
+	 * */
+	@Override
+	public EasyUIDataGridResult getContentList(long categoryId,int page, int rows) {
+		//设置分页信息
+		PageHelper.startPage(page, rows);
+		//执行查询
+		TbContentExample example=new TbContentExample();
+		cn.e3mall.pojo.TbContentExample.Criteria createCriteria = example.createCriteria();
+		createCriteria.andCategoryIdEqualTo(categoryId);
+		List<TbContent> list = contentMapper.selectByExample(example);
+		//创建一个返回值对象
+ 		EasyUIDataGridResult result=new EasyUIDataGridResult();
+		result.setRows(list);
+		//取分页结果信息
+		PageInfo<TbContent> pageInfo=new PageInfo<>(list);
+		//取总记录数
+		long total = pageInfo.getTotal();
+		result.setTotal(total);
+		return result;
+	}
+	/* 
+	 * 
+	 * 删除广告内容
+	 * /rest/content/edit
+	 */
+	@Override
+	public E3Result delContent(long parentId) {
+		contentMapper.deleteByPrimaryKey(parentId);
+		return E3Result.ok();
+	}
+	/* 
+	 * 
+	 * 修改广告内容
+	 * 
+	 */
+	@Override
+	public E3Result updContent(TbContent content) {
+		content.setUpdated(new Date());
+		content.setCreated(new Date());
+		contentMapper.updateByPrimaryKey(content);
+		return E3Result.ok();
+	}
+	
+	
 	
 
+	
+	
+	
+	
+	
+	
+	
+	
 }
